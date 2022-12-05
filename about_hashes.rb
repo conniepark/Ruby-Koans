@@ -186,7 +186,8 @@ class AboutHashes < Neo::Koan
     ##assert_equal __, hash[:three]
     assert_equal ["uno", "dos"], hash[:three]
     
-    # The reason it does not return an array with one element each time as you may expect, is because it stores a reference to the value that you pass through to the constructor. Meaning that each time an element is pushed, it modifies the initial array.
+    # The reason it does not return an array with one element each time as you may expect, is because it stores a reference to the value 
+    # that you pass through to the constructor. Meaning that each time an element is pushed, it modifies the initial array.
 
     ##assert_equal __, hash[:one].object_id == hash[:two].object_id
     assert_equal true, hash[:one].object_id == hash[:two].object_id
