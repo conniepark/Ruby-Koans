@@ -172,9 +172,10 @@ class AboutHashes < Neo::Koan
 
   def test_default_value_is_the_same_object
     hash = Hash.new([])
+    # passing a default value to your hash via the constructor. This means that if a key does not exist, then it will return an array.
 
-    hash[:one] << "uno"
-    hash[:two] << "dos"
+    hash[:one] << "uno" # hash[:one] does not exist so return an array and push "uno"
+    hash[:two] << "dos" # hash[:two] does not exist, so return the array ["uno"] and push "dos"
 
     ##assert_equal __, hash[:one]
     assert_equal ["uno", "dos"], hash[:one]
@@ -184,6 +185,8 @@ class AboutHashes < Neo::Koan
 
     ##assert_equal __, hash[:three]
     assert_equal ["uno", "dos"], hash[:three]
+    
+    # The reason it does not return an array with one element each time as you may expect, is because it stores a reference to the value that you pass through to the constructor. Meaning that each time an element is pushed, it modifies the initial array.
 
     ##assert_equal __, hash[:one].object_id == hash[:two].object_id
     assert_equal true, hash[:one].object_id == hash[:two].object_id
