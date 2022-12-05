@@ -196,9 +196,10 @@ class AboutHashes < Neo::Koan
   def test_default_value_with_block
     hash = Hash.new {|hash, key| hash[key] = [] }
     # Here the default value is set as an empty array
+    # The block is called when you add a new key to the hash.
 
-    hash[:one] << "uno"
-    hash[:two] << "dos"
+    hash[:one] << "uno" # calls the block and store ["uno"] as a value of :one key
+    hash[:two] << "dos" # calls the block and store ["dos"] as a value of :two key
 
     ##assert_equal __, hash[:one]
     assert_equal ["uno"], hash[:one]
