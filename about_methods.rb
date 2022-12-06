@@ -68,14 +68,14 @@ class AboutMethods < Neo::Koan
 
   # ------------------------------------------------------------------
 
-  def method_with_var_args(*args)
+  def method_with_var_args(*args) #A variable argument is an array with all the values passed to it.
     args
   end
 
   def test_calling_with_variable_arguments
     ##assert_equal __, method_with_var_args.class
     assert_equal Array, method_with_var_args.class
-    # The method_with_var_args returns the arguments that were passed to it in an Array
+    # The method_with_var_args returns the arguments that were passed to it in-> an Array
 
     ##assert_equal __, method_with_var_args
     assert_equal [], method_with_var_args
@@ -151,6 +151,9 @@ class AboutMethods < Neo::Koan
     assert_match /private/, exception.message
   end
 
+  # cannot call private method on self: 
+  # https://bparanj.gitbooks.io/ruby-basics/content/same_sender_and_receiver.html
+  
   # ------------------------------------------------------------------
 
   class Dog
