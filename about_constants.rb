@@ -4,16 +4,20 @@ C = "top level"
 
 class AboutConstants < Neo::Koan
 
-  C = "nested"
+  C = "nested" 
+  # A constant doesn’t require any special symbol or syntax to declare. 
+  # You just need to make the first letter an uppercase letter.
+  # you can’t define constants inside a method.
+  # https://www.rubyguides.com/2017/07/ruby-constants/
 
   def test_nested_constants_may_also_be_referenced_with_relative_paths
     ##assert_equal __, C
-    assert_equal "nested", C
+    assert_equal "nested", C #can access constant C outside of method, but still inside class
   end
 
   def test_top_level_constants_are_referenced_by_double_colons
     ##assert_equal __, ::C
-    assert_equal "top level", ::C
+    assert_equal "top level", ::C #can access C outside class using ::
   end
 
   def test_nested_constants_are_referenced_by_their_complete_path
