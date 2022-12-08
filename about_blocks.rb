@@ -77,6 +77,8 @@ class AboutBlocks < Neo::Koan
     add_one = lambda { |n| n + 1 }
     ##assert_equal __, add_one.call(10)
     assert_equal 10+1, add_one.call(10)
+    # A lambda is a way to define a block & its parameters with some special syntax.
+    # https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/
 
     # Alternative calling syntax
     ##assert_equal __, add_one[10]
