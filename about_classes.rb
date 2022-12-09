@@ -142,7 +142,7 @@ class AboutClasses < Neo::Koan
     # THINK ABOUT IT:
     # Why is this so?
     # -- ANS ---
-    # It's an ArgumentError since you didnt provide the
+    # It's an ArgumentError since you didnt provide the initial_name
   end
 
   def test_different_objects_have_different_instance_variables
@@ -199,6 +199,10 @@ class AboutClasses < Neo::Koan
     fido = Dog7.new("Fido")
     ##assert_equal __, fido.inspect
     assert_equal "<Dog named 'Fido'>", fido.inspect
+    
+    # .inspect is a String class method in Ruby 
+    # which is used to return a printable version of the given string, 
+    # surrounded by quote marks, with special characters escaped.
   end
 
   def test_all_objects_support_to_s_and_inspect
